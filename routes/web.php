@@ -5,16 +5,7 @@ use Illuminate\Support\Facades\Auth;
 
 use \App\Models\User;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use \App\Http\Controllers\AdminController;
 
 Route::get('/', function () {
     Auth::loginUsingId(1);
@@ -23,3 +14,8 @@ Route::get('/', function () {
 
     return view('welcome', ['users' => $users]);
 });
+
+Route::post('/admin/create', [AdminController::class, 'create'])
+    ->name('admin.create')
+    ->middleware('can:create, App\Models\Admin');
+

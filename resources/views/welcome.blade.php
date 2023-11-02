@@ -8,13 +8,14 @@
 <body>
     <h2>LARAVEL ACL</h2>
 
-    @can('create_admin')
-        <a href="">Create Admin</a>
-    @endcan
-
-    @can('create_guest')
+    @can('create', 'App\Models\Guest')
         <a href="">Create Guest</a>
     @endcan
+
+    <form action="{{ route('admin.create') }}" method="post">
+        @csrf
+        <button type="submit"> Create Admin</button>
+    </form>
 
     <ul>
         @foreach($users as $user)

@@ -15,7 +15,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+        Guest::class => GuestPolicy::class,
+        Admin::class => AdminPolicy::class,
     ];
 
     /**
@@ -27,10 +28,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::before(function(User $user, $permission) {
-            if($user->permissions()->contains($permission)) {
-                return true;
-            }
-        });
+        // Gate::before(function(User $user, $permission) {
+        //     if($user->permissions()->contains($permission)) {
+        //         return true;
+        //     }
+        // });
     }
 }
