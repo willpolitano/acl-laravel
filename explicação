@@ -1,0 +1,39 @@
+IDEIA FUNCIONAL
+
+    Roles (Regras)
+        -Admin (administrador)
+        -Guest (convidado)
+
+    Permissions (Permissões)
+        -get
+        -list
+        -create
+        -update
+        -delete
+
+
+    Cada role (regra) possui uma ou mais permissões (Permissions)
+    Ex:
+        Admin
+            get_admin
+            list_admin
+            create_admin
+            update_admin
+            delete_admin
+        
+        Guest
+            get_guest
+            list_guest
+
+
+
+TABELAS BANCO 
+
+obs: As tabelas devem ser criadas em ordem alfabetica, tudo minusculo e separado pelo underline para o relacionamento do eloquent funcionar corretamente.
+
+users - Tabela Usuários
+roles - Tabela Regras
+permission - Tabela Permissões
+
+user_role - Tabela de relacionamente entre usuários e regras
+role_permission - Tabela de relacionamente entre regras e permissões

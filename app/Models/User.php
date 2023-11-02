@@ -41,4 +41,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //Uma permissão pertence a muitas regras
+    public function role()
+    {
+        return $this->belognsToMany(Role::class);
+    }
 }
