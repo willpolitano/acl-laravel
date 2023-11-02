@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 use \App\Models\User;
 
@@ -16,6 +17,8 @@ use \App\Models\User;
 */
 
 Route::get('/', function () {
+    Auth::loginUsingId(1);
+
     $users = User::all();
 
     return view('welcome', ['users' => $users]);

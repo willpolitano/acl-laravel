@@ -43,8 +43,13 @@ class User extends Authenticatable
     ];
 
     //Uma permissão pertence a muitas regras
-    public function role()
+    public function roles()
     {
-        return $this->belognsToMany(Role::class);
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function permissions()
+    {
+        return $this->roles->map->permissions->flatten()->pluck('name');
     }
 }

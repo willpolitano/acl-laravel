@@ -12,6 +12,6 @@ class Role extends Model
     //Uma regra pertence a muitas permissões
     public function permissions()
     {
-        return $this->belognsToMany(Permission::class);
+        return $this->belongsToMany(Permission::class);
     }
 }
